@@ -3,62 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valentine's Confession</title>
-    <style>
-        body { text-align: center; font-family: Arial, sans-serif; background-color: #ffe6e6; }
-        button { padding: 20px; font-size: 24px; margin: 10px; }
-        #yesButton { transition: transform 0.5s; }
-        #noButton { position: relative; transition: all 0.5s; }
-        footer { position: absolute; bottom: 10px; width: 100%; }
-    </style>
+    <title>Success Page</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        setTimeout(function() {
+            window.location.href = 'index.html'; // Redirect to index page after 3 seconds
+        }, 3000);
+    </script>
 </head>
 <body>
-    <h1>Welcome to the Valentine's Confession!</h1>
-    <p>Will you be my Valentine?</p>
-    <button id="yesButton">Yes</button>
-    <button id="noButton">No</button>
-    <p id="counterDisplay">Click Count: 0</p>
-    <footer>Created by param</footer>
-
-    <script>
-        let clickCount = 0;
-        const counterDisplay = document.getElementById('counterDisplay');
-        const yesButton = document.getElementById('yesButton');
-        const noButton = document.getElementById('noButton');
-
-        yesButton.addEventListener('click', function() {
-            alert('Yay! I’m so happy! 💖');
-        });
-
-        noButton.addEventListener('mouseover', function() {
-            noButton.style.transform = 'translate(' + (Math.random() * 200 - 100) + 'px,' + (Math.random() * 200 - 100) + 'px)';
-        });
-
-        noButton.addEventListener('click', function() {
-            clickCount++;
-            counterDisplay.innerText = 'Click Count: ' + clickCount;
-            if (clickCount >= 5) {
-                alert('Why not give it a thought?');
-                reset();
-            }
-        });
-
-        function reset() {
-            setTimeout(() => {
-                clickCount = 0;
-                counterDisplay.innerText = 'Click Count: 0';
-                noButton.style.transform = 'translate(0, 0)';
-            }, 2000);
-        }
-
-        function celebrate() {
-            const confetti = document.createElement('div');
-            confetti.innerHTML = '🎉🎉🎉';
-            document.body.appendChild(confetti);
-            setTimeout(() => { confetti.remove(); }, 3000);
-        }
-
-        yesButton.addEventListener('click', celebrate);
-    </script>
+    <h1>Success!</h1>
+    <p>Your operation was successful.</p>
+    <img src="https://media.giphy.com/media/3o6Mbqz7nE5buaEoqM/giphy.gif" alt="Cute Gif">
+    <img src="https://media.giphy.com/media/l0MYBcjv9S3RS00v2/giphy.gif" alt="Cute Gif">
+    <img src="https://media.giphy.com/media/fx5liRIXNtWoq/giphy.gif" alt="Cute Gif">
 </body>
 </html>
