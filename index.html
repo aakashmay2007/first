@@ -3,19 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Success Page</title>
-    <link rel="stylesheet" href="styles.css">
-    <script>
-        setTimeout(function() {
-            window.location.href = 'index.html'; // Redirect to index page after 3 seconds
-        }, 3000);
-    </script>
+    <title>Valentine's Confession</title>
+    <style>
+        body { text-align: center; font-family: Arial, sans-serif; }
+        #yesBtn { font-size: 20px; padding: 10px 20px; transition: transform 0.2s; }
+        #noBtn { font-size: 20px; padding: 10px; position: relative; animation: move 0.5s infinite alternate; }
+        @keyframes move { from { transform: translateX(0); } to { transform: translateX(10px); } }
+    </style>
 </head>
 <body>
-    <h1>Success!</h1>
-    <p>Your operation was successful.</p>
-    <img src="https://media.giphy.com/media/3o6Mbqz7nE5buaEoqM/giphy.gif" alt="Cute Gif">
-    <img src="https://media.giphy.com/media/l0MYBcjv9S3RS00v2/giphy.gif" alt="Cute Gif">
-    <img src="https://media.giphy.com/media/fx5liRIXNtWoq/giphy.gif" alt="Cute Gif">
+    <h1>Confess Your Feelings!</h1>
+    <img src="https://example.com/cute-gif1.gif" alt="Cute Gif 1">
+    <img src="https://example.com/cute-gif2.gif" alt="Cute Gif 2">
+    <br>
+    <button id="noBtn">No</button>
+    <button id="yesBtn">Yes</button>
+    <p id="counter">Attempts left: 15</p>
+    <script>
+        let attempts = 15;
+        const yesBtn = document.getElementById('yesBtn');
+        const counter = document.getElementById('counter');
+        
+        yesBtn.addEventListener('click', function() {
+            window.location.href = 'success.html';
+        });
+
+        yesBtn.addEventListener('mouseover', function() {
+            yesBtn.style.transform = 'scale(1.1)';
+        });
+
+        yesBtn.addEventListener('mouseout', function() {
+            yesBtn.style.transform = 'scale(1)';
+        });
+
+        noBtn.addEventListener('click', function() {
+            if (attempts > 0) {
+                attempts--;
+                counter.innerText = 'Attempts left: ' + attempts;
+                if (attempts === 0) {
+                    alert('No more attempts left!');
+                    resetCounter();
+                }
+            }
+        });
+
+        function resetCounter() {
+            attempts = 15;
+            counter.innerText = 'Attempts left: ' + attempts;
+        }
+    </script>
+    <footer>Created by param</footer>
 </body>
 </html>
